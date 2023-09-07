@@ -1,0 +1,20 @@
+.banner {
+  width: 135%;
+  padding: 15px;
+  background-color: blue;
+  text-align: center;
+  color: white;
+  transform: rotate(45deg) translate(0%, 50%);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);
+  opacity: 1;
+}
+
+.container {
+  width: 40%;
+  height: 40%;
+  overflow: hidden;
+  position: absolute;
+  right: 0px;
+  z-index: 2;
+  opacity: 1;
+}
