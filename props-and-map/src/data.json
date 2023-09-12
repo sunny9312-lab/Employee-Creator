@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Portfolio1",
+    "description": "All about me1",
+    "githubLink": "https://github.com",
+    "deployedLink": "https://netlify.com",
+    "techStack": ["HTML", "CSS", "SCSS"]
+  },
+  {
+    "title": "GoogleBooks",
+    "description": "GoogleBooks2",
+    "githubLink": "https://github.com",
+    "deployedLink": "https://netlify.com",
+    "techStack": ["HTML", "CSS", "JavaScript"]
+  },
+  {
+    "title": "E-commerce",
+    "description": "E-commerce3",
+    "githubLink": "https://github.com",
+    "deployedLink": "https://netlify.com",
+    "techStack": ["React", "SCSS", "Firebase"]
+  },
+  {
+    "title": "Minesweeper",
+    "description": "Minesweeper3",
+    "githubLink": "https://github.com",
+
+    "techStack": ["java"]
+  }
+]
