@@ -22,11 +22,13 @@ const Planet = ({ planet }) => {
 
   return (
     <div className={cardStyles}>
+      {/* <div className={cardStyles} style={{ order: diameterInKm}}>  으로 여기서도 diameter별로 order할수있다. 많이 쓰지는 않는다. 이방법 */}
       <p>planetName : {planetName}</p>
       <img src={image} alt={planetName} />
       <p>distanceFromSun : {distanceFromSun}</p>
       <p>diameterInKm : {diameterInKm}</p>
       <p>numberOfMoons : {numberOfMoons}</p>
+      {/* {numberOfMoons > 0 && <p>numberOfMoons : {numberOfMoons}</p> } moon갯수가 0일때 아예 않보이게,렌더링않되게*/}
       <p>lengthOfYear : {lengthOfYear}</p>
     </div>
   );
