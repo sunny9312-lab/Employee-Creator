@@ -29,3 +29,17 @@ value *= 3;
 console.log("after2 value : ", value);
 value /= 2;
 console.log("after2 value : ", value);
+
+console.log("after3 value : ", ++value);
+console.log("after4 value : ", value++);
+console.log("after2 value : ", value);
+console.log(--value);
+console.log(value);
+console.log(value--);
+console.log(value);
+
+let myName = "Martyna";
+console.log("hi, " + myName);
+
+const fullNameSentence = `Hi, my name is ${myName}`;
+console.log(fullNameSentence);
