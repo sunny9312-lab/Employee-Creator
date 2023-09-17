@@ -1,16 +1,18 @@
-import React from 'react'
+import React from "react";
+import style from "./TaskCard.module.scss";
 
-const TaskCard = ({taskName, priority}) => {
-
-const deleteBtn
+const TaskCard = ({ taskName, priority }) => {
+  const onDeleteBtn = (event) => {
+    console.log("delete button excuted");
+  };
 
   return (
-    <div>
-        <h2>taskName: {taskName}</h2>
-        <h2>priority: {priority}</h2>
-        <button onClick={deleteBtn}>Delete</button>
+    <div className={style.card}>
+      <h2>taskName: {taskName}</h2>
+      <h2>priority: {priority}</h2>
+      <button onClick={onDeleteBtn}>Delete</button>
     </div>
-  )
-}
+  );
+};
 
-export default TaskCard
+export default TaskCard;
