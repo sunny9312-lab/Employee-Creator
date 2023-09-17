@@ -1,18 +1,15 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import taskData from "./data/taskData";
 import "./App.css";
-import TaskCard from "./components/TaskCard/TaskCard";
+import TaskList from "./components/TaskList";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [tasks, setTasks] = useState(taskData);
 
   return (
     <>
-      <TaskCard taskName="Clean the bathroom " priority="low" />
-      <TaskCard taskName="Walk the dog" priority="high" />
-      <TaskCard taskName="Do codewars " priority="very high" />
-      <TaskCard taskName="Cook dinner " priority="medium" />
+      <h1>Tasks</h1>
+      <TaskList tasks={tasks} />
     </>
   );
 }
