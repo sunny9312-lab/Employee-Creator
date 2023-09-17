@@ -4,8 +4,10 @@ import Card from "./components/Card/Card";
 import StyledCounter from "./components/StyledCounter/StyledCounter";
 import NameList from "./components/NameList/NameList";
 import SearchBar from "./components/SearchBar/SearchBar";
+import { useState } from "react";
 
 function App() {
+  const [filterValue, setFilterValue] = useState(" ");
   return (
     <>
       <Counter />
@@ -15,8 +17,8 @@ function App() {
       />
       <Card title="Second Card" content="here is another text" />
       <StyledCounter />
-      <SearchBar />
-      <NameList />
+      <SearchBar setFilterValue={setFilterValue} />
+      <NameList filterValue={filterValue} />
     </>
   );
 }

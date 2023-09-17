@@ -1,11 +1,16 @@
 import React from "react";
-
-const NameList = () => {
+import namesData from "../../data/names.json";
+const NameList = ({ filterValue }) => {
+  console.log(namesData);
   return (
     <ul>
-      <li>Alice</li>
-      <li>Bob</li>
-      <li>Charlie</li>
+      {namesData
+        .filter((name) =>
+          name.toLowerCase().includes(filterValue.toLowerCase())
+        )
+        .map((name, index) => {
+          return <li key={index}>{name}</li>;
+        })}
     </ul>
   );
 };
