@@ -10,12 +10,11 @@ function App() {
   return (
     <>
       <div>
-        <button onClick={() => setShowClock(!showClock)}>
+        {/* <button onClick={() => setShowClock(!showClock)}>
           {showClock ? "Hide Clock" : "Show Clock"}
         </button>
-        {showClock && <Clock />}
-
-        <RandomJoke />
+        {showClock && <Clock />} */}
+        {/* <RandomJoke /> */}
       </div>
     </>
   );
