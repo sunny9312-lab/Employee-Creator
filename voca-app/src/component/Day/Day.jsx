@@ -2,7 +2,7 @@ import React from "react";
 import dummy from "../../db/data.json";
 
 const Day = () => {
-  const day = 2;
+  const day = 1;
   const wordList = dummy.words.filter((word) => word.day === day);
   console.log(wordList);
 
