@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getRandomJoke } from "../../services/joke-service";
+import { getRandomJoke } from "../../services/joke-services";
 
 const RandomJoke = () => {
   const [jokeData, setJokeData] = useState(null);

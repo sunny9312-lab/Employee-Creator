@@ -12,15 +12,17 @@ export const getRandomJoke = async () => {
 };
 
 export const getJokesBySearchTerm = async (searchTerm = "") => {
-  const url = searchTerm
-    ? `https://icanhazdadjoke.com/search/${searchTerm}`
-    : "https://icanhazdadjoke.com/search";
-
-  const response = await fetch(url, {
-    headers: {
-      Accept: "application/jason",
-    },
-  });
+  // const url = searchTerm
+  //   ? `https://icanhazdadjoke.com/search/${searchTerm}`
+  //   : 'https://icanhazdadjoke.com/search';
+  const response = await fetch(
+    `https://icanhazdadjoke.com/search?term=${searchTerm}`,
+    {
+      headers: {
+        Accept: "application/json",
+      },
+    }
+  );
   if (!response.ok) {
     throw new Error("Failed to fetch jokes");
   }

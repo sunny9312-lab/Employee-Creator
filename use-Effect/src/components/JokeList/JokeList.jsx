@@ -2,10 +2,10 @@ import React from "react";
 
 export const JokeList = ({ jokes }) => {
   return (
-    <ul>
+    <section>
       {jokes.map((jokeData) => (
-        <li key={jokeData.id}>{jokeData.joke}</li>
+        <p key={jokeData.id}>{jokeData.joke}</p>
       ))}
-    </ul>
+    </section>
   );
 };
