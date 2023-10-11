@@ -18,8 +18,7 @@ function App() {
 
   return (
     <>
-      {/* <ControlledForm handleSubmit={handleSubmit} /> */}
-      <RefForm handleSubmit={handleSubmit} />
+      <ControlledForm handleSubmit={handleSubmit} />
       {formSuccess && <p>Successfully submitted form {username}</p>}
     </>
   );
