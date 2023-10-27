@@ -1,5 +1,6 @@
 package io.nology.appbackend.post;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,14 +13,16 @@ import jakarta.validation.Valid;
 @RequestMapping("/posts")
 public class PostController {
 	
+	@Autowired
+	private PostService postService;
 	@PostMapping
 	// I am returning ResponseEntity because I want to have control over what status code
 	//gets returned as part of HTTP response
-	public void createPost(@Valid  @RequestBody CreatePostDTO data) {
+	public Post createPost(@Valid  @RequestBody CreatePostDTO data) {
 		System.out.println(data);
 		System.out.println(data.category);
 		System.out.println(data.content);
-		//this.postService.create(data);
+		return this.postService.create(data);
 
 	}
 
