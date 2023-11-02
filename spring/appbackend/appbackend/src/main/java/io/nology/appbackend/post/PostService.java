@@ -1,6 +1,7 @@
 package io.nology.appbackend.post;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,9 +26,14 @@ public class PostService {
 		Post newPost = new Post(postTitle, postCategory, postContent, postCreatedAt);
 		
 	    Post createdPost = this.postRepository.save(newPost);
-	    System.out.println(createdPost.getId());
+	    System.out.println(createdPost.getId() + " id");
 	    return createdPost;
 		
 	}
-
+	public List<Post> findAll() {
+		return this.postRepository.findAll();
+		
+	}
+	
+	
 }
