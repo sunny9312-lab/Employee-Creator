@@ -2,6 +2,7 @@ package io.nology.appbackend.post;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,11 @@ public class PostService {
 	public List<Post> findAll() {
 		return this.postRepository.findAll();
 		
+	}
+	//findById 는 해당 리스트가 없을수도 있으므로 optional이다. 
+	public Optional<Post> findById(Long id){
+		Optional<Post> maybePost = this.postRepository.findById(id);
+		return maybePost;
 	}
 	
 	

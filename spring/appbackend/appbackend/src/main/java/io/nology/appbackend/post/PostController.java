@@ -1,6 +1,7 @@
 package io.nology.appbackend.post;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.nology.appbackend.exception.NotFoundException;
 import jakarta.validation.Valid;
 
 @RestController
@@ -45,8 +47,12 @@ public class PostController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Post> getById(@PathVariable Long id) {
-//		Post foundPost = this.postService.findById(id);
-		return null;
+		Optional<Post> foundPost = this.postService.findById(id);
+		if(foundPost.isEmpty()) {
+			throw new NotFoundException(String.format("Post with id:%s not found", id));
+			
+		}
+		return new ResponseEntity<>(foundPost.get(), HttpStatus.OK);
 	}
 
 }
