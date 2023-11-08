@@ -23,7 +23,7 @@ public class PostService {
 		String postContent = data.getContent().trim();
 		String postCategory = data.getCategory().trim();
 		Date postCreatedAt = new Date();
-		
+		//replacing this with mapper
 		Post newPost = new Post(postTitle, postCategory, postContent, postCreatedAt);
 		
 	    Post createdPost = this.postRepository.save(newPost);
@@ -41,5 +41,14 @@ public class PostService {
 		return maybePost;
 	}
 	
+	public boolean deleteById(Long id) {
+		Optional<Post> maybePost = this.findById(id);
+		
+		if(maybePost.isEmpty()) { //delete하려고 하는 id가 없는경우에는 204에러
+			return false;
+		}
+		this.postRepository.delete(maybePost.get());  //delete 하려는 id 있으면 지우고, true리턴
+		return true;
+	}
 	
 }
