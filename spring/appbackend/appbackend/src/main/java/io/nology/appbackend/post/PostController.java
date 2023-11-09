@@ -54,6 +54,7 @@ public class PostController {
 			
 		}
 		return new ResponseEntity<>(foundPost.get(), HttpStatus.OK);
+		
 	}
 //update
 	
@@ -62,6 +63,10 @@ public class PostController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Post> deleteById(Long id) {
 		//this.postService.deleteById(id);
+		boolean deleted = this.postService.deleteById(id);
+		if(!deleted) {
+			throw new NotFoundException(String.format("Post with id: %s not found, could not delete", id));
+		}
 		return null;
 	}
 }
