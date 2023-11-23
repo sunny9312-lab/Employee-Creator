@@ -93,3 +93,111 @@ const decrementNumbers2 = numbers2.map((num) => num - 5);
 console.log(decrementNumbers2, "화살표 함수 사용한것, return문없이");
 
 // write our own map - DO NOT DO THIS IN REAL LIFE
+// ...
+//무슨 말인지 잘 이해가 않됨.
+const map = (arr, func) => {
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    const currentItem = arr[i];
+    const newVal = func(currentItem);
+    newArr.push(newVal);
+  }
+  return newArr;
+};
+
+const numbers3 = [2, 3, 4];
+const incBy4 = (num) => num + 4;
+console.log(map(numbers3, incBy4), "새로운 방법의 map 사용, 4씩 증가");
+
+const stringArr = ["hello", "hi", "nology"];
+const mappedStringArr = stringArr.map((element, index, arr) => {
+  console.log(element, "first param of my callback");
+  console.log(
+    index,
+    "this is the current index I am at, the second param of map"
+  );
+  console.log(
+    arr,
+    "This is the entire array I am calling map on, the third param of map"
+  );
+});
+
+// map returns a whole new array, it doesn't modify the original array
+// ... spread syntax [...array]
+
+// filter
+// returns a new array
+// returns items that meet a certain condition
+// takes in a callback function
+// the function we pass to filter returns a single TRUE or FALSE for each element of the array
+// returns an array where the result was truthy
+
+const numbersToFilter = [2, 3, 4, 5, 9];
+
+function isEven(num) {
+  return num % 2 === 0;
+}
+
+const filteredNumbers = numbersToFilter.filter(isEven);
+console.log(filteredNumbers, "배열중에서 짝수인것을 찾는것");
+
+const numsGreaterThanFour = numbersToFilter.filter((num) => num > 4);
+console.log(numsGreaterThanFour, "한줄로 함수 만들어서 filter한것");
+
+const words = ["apple", "table", "pen", "cup"];
+const threeLetterWords = words.filter((word, i, wholeArr) => {
+  console.log(word);
+  console.log(i);
+  console.log(wholeArr);
+  return word.length === 3;
+});
+console.log(threeLetterWords, "세글자인 배열");
+
+// some more useful methods
+
+// FIND  find와 filter의 차이는 find는 조건에 맞는 첫번째, 그것만, filter는 해당 되는 조건모두
+// returns a first (single) value that matches our condition
+
+const fruit = ["pear", "banana", "grape", "apple", "kiwi"];
+const fourLetterFruit = fruit.find((f) => f.length === 4);
+console.log(
+  fourLetterFruit,
+  "4글자 과일 find로 찾음,조건에 걸리는 첫번째 값 반환"
+);
+
+const allFiveLetterFruit = fruit.filter((f) => f.length === 5);
+console.log(allFiveLetterFruit, "모든 5글자 과일");
+
+// EVERY
+// check if all elements in an array meet a certain condition
+// 해당 배열에 모든 값이 조건을 모두 만족하는지
+const veg = ["leek", "corn", "kale", "cucumber"];
+const areAll4Letters = veg.every((item) => item.length === 4);
+console.log(areAll4Letters); //true 혹은 false로 반환, 여기서는 cucumber가 아니다.
+
+// SOME
+// checks if at least one element meets a certain condition
+// 한 조건만 만나면 true
+const atLeastOne4LettersLong = veg.some((el) => el.length === 4);
+console.log(
+  atLeastOne4LettersLong,
+  "some을 이용한 최소 4글자길이만 있으면 true"
+);
+
+const longerThan12Letters = veg.some((el) => el.length > 12);
+console.log(
+  longerThan12Letters,
+  "some 을 이용한 12글자보다 많은 값이 있으면 true"
+);
+
+// forEach
+
+// iterates through every element of an array
+// it doesn't return anything
+const veggies = veg.forEach((el) => {
+  console.log(el);
+  // even though I am returning here, for each will always return undefined
+  //사실 forEach만 잘 이해가 않됨.
+  return el;
+});
+console.log(veggies, "for each");
