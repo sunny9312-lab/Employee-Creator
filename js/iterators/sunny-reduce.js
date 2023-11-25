@@ -60,3 +60,18 @@ const doubledWithReduce = numbersToDouble.reduce((acc, curr) => {
   return acc;
 }, []);
 console.log(doubledWithReduce, ":doubled with reduce");
+
+// we can use reduce like we would use filter -> to get an array of elements that fulfilled a certain condition
+// I want an array of even numbers
+//reduce를 이용해서 filter처럼 쓸수 있다. 그러나 반드시 초기값을 empty array [] 로 해줘야 에러가 나지 않는다.
+
+const numbersToFilter = [12, 45, 62, 57];
+const evenNums = numbersToFilter.reduce((acc, curr) => {
+  if (curr % 2 === 0) {
+    acc.push(curr);
+  }
+  return acc;
+}, []);
+console.log(evenNums, ": even numbers");
+
+// given an array of character codes, convert the codes to letters and reduce it to a single string
