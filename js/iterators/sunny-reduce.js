@@ -74,4 +74,38 @@ const evenNums = numbersToFilter.reduce((acc, curr) => {
 }, []);
 console.log(evenNums, ": even numbers");
 
-// given an array of character codes, convert the codes to letters and reduce it to a single string
+// given an array of character codes, convert the codes to letters and reduce it to a single string :fromCharCode(숫자):해당숫자에 uncode값에 연결되는 알파벳
+const arrOfCodes = [114, 101, 100, 117, 99, 101];
+const codesToLetters = arrOfCodes.reduce((acc, curr) => {
+  console.log({ acc: acc, charCodeFromCurr: String.fromCharCode(curr) });
+  return acc + String.fromCharCode(curr);
+}); //초기값을 설정하지 않으면, 첫번째 acc가 114숫자로 잡힌다. 그래서 초기값을 "" 으로 해주어야 "reduce"가 나온다.
+console.log(codesToLetters, "codes to letter");
+
+const arrOfCodes2 = [114, 101, 100, 117, 99, 101];
+const codesToLetters2 = arrOfCodes2.reduce((acc, curr) => {
+  return acc + String.fromCharCode(curr);
+}, "");
+console.log(codesToLetters2, "내방식대로..");
+
+// given an array of letters, reduce them to get the sum of character codes  : charCodeAt(index) : 해당 index의 unicode값
+const lettArr = ["c", "h", "e", "e", "s", "e"];
+const sumOfCodes = lettArr.reduce((acc, curr) => acc + curr.charCodeAt(), 0);
+console.log(sumOfCodes, ": sum of the character codes");
+
+// use reduce to filter an array to only get numbers greater than 10
+const numArr = [1, 345, 545, 2, 5, 7, 907];
+const greaterThan10 = numArr.reduce((prev, curr) => {
+  if (curr > 10) {
+    prev.push(curr);
+  }
+  return prev;
+}, []);
+console.log(greaterThan10, ": greaterThan10");
+
+// use reduce to create an array of numbers (use numsArr) to the power of 2
+const power2 = numArr.reduce((acc, curr) => {
+  acc.push(curr ** 2);
+  return acc;
+}, []);
+console.log("power2 : ", power2);
