@@ -18,3 +18,15 @@ console.log(checkIfAllowed(18, "UK", 2)); // true
 console.log(checkIfAllowed(18, "USA", 2)); // false
 console.log(checkIfAllowed(12, "USA", 2)); // false
 console.log(checkIfAllowed(32, "USA", 4)); // false
+
+const form = document.querySelector(".form");
+console.dir(form);
+
+const messageDiv = document.querySelector("#message");
+console.log(messageDiv.children);
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new FormData(form);
+  console.log(formData);
+});
