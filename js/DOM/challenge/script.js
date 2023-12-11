@@ -30,3 +30,4 @@ form.addEventListener("submit", (event) => {
   const formData = new FormData(form);
   console.log(formData);
 });
+console.log(formData);
