@@ -31,3 +31,4 @@ form.addEventListener("submit", (event) => {
   console.log(formData);
 });
 console.log(formData);
+//formData is updated
