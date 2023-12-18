@@ -29,5 +29,45 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(form);
   console.log(formData);
+  const age = formData.get("age");
+  const country = formData.get("country");
+  const levelOfDrunk = formData.get("drunk");
+  console.log(age, country, levelOfDrunk);
+  console.log(formData);
+  // based on the values, I need to decide what message I want
+  let messageStr = "";
+  const allowed = checkIfAllowed(age, country, levelOfDrunk);
+
+  allowed ? (messageStr = "Come in") : (messageStr = "Go home");
+  console.log(messageStr);
+  // remove the paragraph from the div if it's there to make room for the new one
+  //이쪽부분 비디오 다시 볼것. 이해가 되지 않음
+  console.log(messageDiv.children.length);
+  if (messageDiv.children.length > 0) {
+    messageDiv.removeChild(document.querySelector("#msg"));
+  }
+  // create a p tag to add to the page
+  const newP = document.createElement("p");
+  newP.id = "msg";
+  // create a text node from messageSTr for the p tag
+  const text = document.createTextNode(messageStr);
+  // tell the text to go inside my paragraph
+  newP.appendChild(text);
+  // tell teh p tag where to go on the page
+  messageDiv.appendChild(newP);
+  //clear the form
+  form.reset();
+  // based on the values, I need to decide what styling I want
+  if (allowed) {
+    if (messageDiv.classList.contains("message--failure")) {
+      messageDiv.classList.remove("message--failure");
+    }
+    document.querySelector("img").src = "./assets/green_beer.svg";
+
+    messageDiv.classList.add("message--success");
+  } else {
+    document.querySelector("img").src = "./assets/red_beer.svg";
+    messageDiv.classList.add("message--failure");
+  }
 });
-console.log(formData);
+// console.log(formData);
