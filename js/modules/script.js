@@ -26,6 +26,7 @@ form.addEventListener("submit", (event) => {
   const perimeterToDisplay = rectPerim(parseFloat(w), parseFloat(h));
   console.log(perimeterToDisplay);
   // const createEl = (el, textVal, parent) 다른 정의된 화일에서는 이런형식으로 쓰일것.
+  //  계속해서 이렇게..
   createEl("p", areaToDisplay, document.querySelector("#area"));
   createEl("p", perimeterToDisplay, document.querySelector("#perimeter"));
 });
